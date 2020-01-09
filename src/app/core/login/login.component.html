@@ -1,0 +1,36 @@
+<div class="page-holder d-flex align-items-center">
+  <div class="container">
+      <div class="row align-items-center py-5">
+          <div class="col-5 col-lg-7 mx-auto mb-5 mb-lg-0">
+              <div class="pr-lg-5">
+                  <img src="assets/img/illustration.svg" alt="" class="img-fluid">
+              </div>
+          </div>
+          <div class="col-lg-5 px-lg-4">
+              <h1 class="text-base text-primary text-uppercase mb-4">Koro Fred à toi lhonneur</h1>
+              <h2 class="mb-4">Bienvenu à vous!</h2>
+               <p class="text-muted">Enregistrer et Analyser les dossiers de transferts</p>
+              <form id="loginForm"  [formGroup]="loginForm" class="mt-4" (ngSubmit)="onSubmit() ">
+                  <div class="form-group mb-4">
+                      <input type="text" formControlName="username" placeholder="Username" class="form-control border-0 shadow form-control-lg">
+                  </div>
+                  <div class="form-group mb-4">
+                      <input type="password" formControlName="password" placeholder="Password" class="form-control border-0 shadow form-control-lg text-violet" >
+                  </div>
+                 
+                  <button [disabled]="loading" type="submit" class="btn btn-primary shadow px-5">
+                      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                      S'authentifier
+                  </button>
+                  <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+              </form>
+          </div>
+      </div>
+      <p class="mt-5 mb-0 text-gray-400 text-center">
+          Réalisé par gseghda
+          <a href="https://bootstrapious.com/admin-templates" class="external text-gray-400">
+              Bootstrapious
+          </a> & Your company
+      </p>
+  </div>
+</div>

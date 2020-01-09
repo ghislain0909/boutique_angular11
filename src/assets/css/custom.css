@@ -1,0 +1,283 @@
+.project-thumb {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 1.5rem 0.7rem;
+	-webkit-box-shadow: 1px 0 5px rgba(103, 120, 151, 0.1);
+    box-shadow: 1px 0 5px rgba(103, 120, 151, 0.1);
+}
+.pr-thumb-img {
+    max-width:70px;
+    margin:1.5rem auto 0.7rem auto;
+}
+.pr-thumb-team {
+    text-align: center;
+    width: 100%;
+    margin: 0.6em 0 1rem 0;
+}
+.pr-thumb-img img{
+	display:table;
+	margin:0 auto;
+}
+.pr-thumb-team a {
+    display: inline-block;
+    width:30px;
+    margin: 2px 3px;
+}
+h4.pr-title {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+	margin-bottom:0.8rem;
+}
+span.project--status{
+    text-align: center;
+    display: block;
+}
+span.project--status.pr-active {
+	color:#1cc100;
+}
+span.project--status.pr-pending {
+	color:#fea911;
+}
+.pr-task {
+    display: block;
+    margin: 2.5rem 0rem 0rem 0rem;
+    padding: 0;
+}
+span.pr-date {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+.pr-task ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+}
+.pr-task ul li {
+    display: inline-block;
+    width: 33.333333%;
+    text-align: center;
+    font-size: 13px;
+}
+
+/*-----------  projects Styles: Add Project ---------------*/
+
+.project-detail label {
+    color: #677897;
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 15px;
+    margin-bottom: 0;
+    opacity: 0.8;
+    position: relative;
+    top: 7px;
+}
+.project-detail label .required{
+	color:#ff526c;
+}
+.project-detail .form-control {
+    line-height: 1;
+    padding: 0 0 0 15px;
+	font-size:17px;
+	background:transparent;
+}
+.project-detail textarea.form-control{
+	padding-top:10px;
+}
+.project-detail .form-group {
+    width: 100%;
+    padding:5px 0 8px 0;
+}
+.project-detail select.form-control {
+    padding-left: 10px;
+}
+.nav-tabs.step-anchor>li>a {
+    padding: 22px;
+}
+ul.nav.nav-tabs.step-anchor li {
+    padding: 0 2em;
+}
+tooltip tip {
+    background: #313b54;
+    color: #97a1b9;
+    min-width: 200px;
+    font-size: 13px;
+}
+tooltip._top._right tip tip-arrow {
+    border-top: 6px solid #313b54;
+}
+tooltip tip h5 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 17px !important;
+}
+
+.pr-thumb-img tooltip tip {
+    background:#0080ff;
+	padding:15px 0;
+    color:#a6d3ff;
+}
+.pr-thumb-img tooltip._top:not(._left):not(._right) tip tip-arrow{
+    border-top-color:#0080ff;
+}
+.wizard > .content{
+	background:#ffffff;
+}
+.wizard > .content > .body {
+    float: none;
+    position: relative;
+    width: 100%;
+    height: 95%;
+    padding: 0;
+}
+.wizard > .content > .body input {
+    display: block;
+    border: transparent;
+}
+.wizard > .content {
+    min-height:30em;
+}
+.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+    background: transparent;
+	padding:0.5em 1em !important;
+    color: #aec7e1;
+    cursor: default;
+	-webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+}
+.wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active {
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding:0.5em 1em;
+    text-decoration: none;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+}
+.wizard > .steps .number {
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: #eff5f9;
+    line-height: 28px;
+    text-align: center;
+    color: #94acc5;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-weight: 500;
+}
+.wizard > .steps .current a .number, .wizard > .steps .current a:hover .number, .wizard > .steps .current a .number:active {
+	color: #ffffff;
+	background:#1cc100;
+}
+.wizard > .steps .done a .number, .wizard > .steps .done a .number:hover, .wizard > .steps .done a .number:active {
+    background:#1cc100;
+    color:#ffffff;
+}
+.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active {
+    background: rgba(28,193,0,0.1);
+    color: #1cc100;
+}
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+    background: transparent;
+    color: #1cc100;
+    cursor: default;
+}
+/*----Dropzone---*/
+.project-detail .dropzone {
+    border: 1px dashed #eaeff5;
+    max-width: 80%;
+    margin:14.4px auto;
+    padding: 25px 0;
+    min-height: 50px;
+	color:#677897;
+	background:transparent;
+}
+.project-detail .dropzone .dz-message {
+    text-align: center;
+    margin: 0em 0;
+}
+.dropzone i {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.dropzone .dz-message {
+    text-align: center;
+    margin: 0em 0;
+}
+/*----Dropper---*/
+
+div.datedropper.my-style {
+  border-radius: 8px;
+  width: 180px;
+}
+div.datedropper.my-style .picker {
+  border-radius: 8px;
+  box-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.1);
+}
+div.datedropper.my-style .pick-l {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+div.datedropper.my-style:before,
+div.datedropper.my-style .pick-submit,
+div.datedropper.my-style .pick-lg-b .pick-sl:before,
+div.datedropper.my-style .pick-m,
+div.datedropper.my-style .pick-lg-h {
+  background-color:#1cc100;
+}
+div.datedropper.my-style .pick-y.pick-jump,
+div.datedropper.my-style .pick li span,
+div.datedropper.my-style .pick-lg-b .pick-wke,
+div.datedropper.my-style .pick-btn {
+  color: #1cc100;
+}
+div.datedropper.my-style .picker,
+div.datedropper.my-style .pick-l {
+  background-color: #FFF;
+}
+div.datedropper.my-style .picker,
+div.datedropper.my-style .pick-arw,
+div.datedropper.my-style .pick-l {
+  color: #3a465e;
+}
+div.datedropper.my-style .pick-m,
+div.datedropper.my-style .pick-m .pick-arw,
+div.datedropper.my-style .pick-lg-h,
+div.datedropper.my-style .pick-lg-b .pick-sl,
+div.datedropper.my-style .pick-submit {
+  color: #FFF;
+}
+div.datedropper.my-style.picker-tiny:before,
+div.datedropper.my-style.picker-tiny .pick-m {
+  background-color: #FFF;
+}
+div.datedropper.my-style.picker-tiny .pick-m,
+div.datedropper.my-style.picker-tiny .pick-m .pick-arw {
+  color: #3a465e;
+}
+div.datedropper.my-style.picker-lkd .pick-submit {
+  background-color: #FFF;
+  color: #3a465e;
+}
+/*-----Step buttons */
+.wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active {
+    background:#c27ad3;
+    color: #ffffff;
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {
+    background: #f4f5f7;
+    color: #99a2b5;
+}

@@ -1,0 +1,112 @@
+<div id="sidebar" class="sidebar py-3">
+    <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">
+        PRINCIPAL
+    </div>
+    <ul class="sidebar-menu list-unstyled" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <li class="sidebar-list-item">
+            <a routerLink="/trf/dashboard" class="sidebar-link text-muted">
+                <i class="o-home-1 mr-3 text-gray"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sidebar-list-item">
+            <a href="#" data-toggle="collapse" data-target="#dossiersPages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted">
+                <i class="o-survey-1 mr-3 text-gray"></i>
+                <span>Dossiers</span>
+            </a>
+            <div id="dossiersPages" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossier-facture" class="sidebar-link text-muted pl-lg-5">
+                            Dossier de règlement de facture
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossier-prestation" class="sidebar-link text-muted pl-lg-5">
+                            Dossier de prestation de service
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossier-salaire" class="sidebar-link text-muted pl-lg-5">
+                            Dossier de traitement de salaire
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossier-remboursement" class="sidebar-link text-muted pl-lg-5">
+                            Dossier de remboursement d'un emprunt
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossier-ecole" class="sidebar-link text-muted pl-lg-5">
+                            Dossier d'école ou de soutien familial
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossier-transfert" class="sidebar-link text-muted pl-lg-5">
+                            Dossier de Transfert de fonds
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="sidebar-list-item">
+            <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted">
+                <i class="o-survey-1 mr-3 text-gray"></i>
+                <span>Documents</span>
+            </a>
+            <div id="pages" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/ordre" class="sidebar-link text-muted pl-lg-5">Ordre de virement</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/ac" class="sidebar-link text-muted pl-lg-5">Autorisation de change</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/dpi" class="sidebar-link text-muted pl-lg-5">Declaration Préalable d'importation</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/asi"  class="sidebar-link text-muted pl-lg-5">Attestation speciale d'importation</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/ai" class="sidebar-link text-muted pl-lg-5">Attestation d'importation</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/bulletin" class="sidebar-link text-muted pl-lg-5">Bulletin de paie</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/facture" class="sidebar-link text-muted pl-lg-5">Facture</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/contrat"  class="sidebar-link text-muted pl-lg-5">Contrat de travail</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/prestation" class="sidebar-link text-muted pl-lg-5">Contrat de prestation ou d'assistance</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/inscription" class="sidebar-link text-muted pl-lg-5">Fiche d'inscription</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/conv-pret" class="sidebar-link text-muted pl-lg-5">Convention de prêt</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/dossiers/amortissement"  class="sidebar-link text-muted pl-lg-5">Tableau d'amortissement</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+      
+        <li class="sidebar-list-item">
+            <a href="forms.html" class="sidebar-link text-muted">
+                <i class="o-wireframe-1 mr-3 text-gray"></i>
+                <span>Paramétrage</span>
+            </a>
+        </li>
+        <li class="sidebar-list-item">
+            <a href="forms.html" class="sidebar-link text-muted">
+                <i class="o-wireframe-1 mr-3 text-gray"></i>
+                <span>Aide et Support</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,42 @@
+<form class="form cf">
+    <div class="wizard">
+        <div class="wizard-inner">
+            <!--<div class="connecting-line"></div>-->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="nav-item">
+                    <a routerLink="donneur"  data-toggle="tab" aria-controls="step1" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }" role="tab" title="Emetteur de l'ordre" class="nav-link active">
+                        <span class="round-tab one">
+                            <i class="fa fa-info"></i>
+                        </span>
+                    </a>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <a routerLink="beneficiaire" data-toggle="tab" aria-controls="step2" role="tab"
+                     title="Bénéficiaire de l'ordre" class="nav-link">
+                        <span class="round-tab two">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    </a>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <a routerLink="operation" routerLinkActive="active" data-toggle="tab" aria-controls="step3"
+                     role="tab" title="Opération" class="nav-link ">
+                        <span class="round-tab three">
+                            <i class="fa fa-money"></i>
+                        </span>
+                    </a>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <a routerLink="/maison/new/photo" routerLinkActive="active" data-toggle="tab" aria-controls="step4" role="tab" title="Résumé" class="nav-link ">
+                        <span class="round-tab four">
+                            <i class="fa fa-image"></i>
+                        </span>
+                    </a>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</form>
+
