@@ -16,6 +16,9 @@ import { DonneurComponent } from './ordre/composant/donneur/donneur.component';
 import { BeneficiaireComponent } from './ordre/composant/beneficiaire/beneficiaire.component';
 import { OperationComponent } from './ordre/composant/operation/operation.component';
 import { SummaryComponent } from './ordre/composant/summary/summary.component';
+import { ActiviteComponent } from './activite/activite.component';
+import { MotifComponent } from './motif/motif.component';
+import { JustificatifComponent } from './justificatif/justificatif.component';
 
 
 @NgModule({
@@ -32,6 +35,9 @@ import { SummaryComponent } from './ordre/composant/summary/summary.component';
      BeneficiaireComponent,
      OperationComponent,
      SummaryComponent,
+     ActiviteComponent,
+     MotifComponent,
+     JustificatifComponent,
     ],
   imports: [
     CommonModule,

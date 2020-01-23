@@ -1,24 +1,54 @@
 <form class="form-horizontal">
     <div class="tab-pane">
-      <h4 class="head text-center">Ordre de virement : Bénéficiaire</h4>
+      <h4 class="head text-center">Information sur le bénéficiaire</h4>
       <br/>
     </div>
     <div class="container">
    
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label">Nom</label>
-            <input type="text" name="password" class="form-control" formCOntrolName="identiteDestinataire">
+          <div class="form-group ">
+            <label class="form-control-label">Catégorie personne</label>     
+            <div class="select">
+              <select formControlName="" class="form-control mb-3">
+                <option>Personne physique</option>
+                <option>Personne morale</option>
+                <option>Code BiC</option>
+                <option>option 4</option>
+              </select>
+            </div>             
           </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label class="form-control-label">Adresse Complète</label>
-          <input type="text" placeholder="Adresse" class="form-control" formControName="adresseDestinataire">
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-control-label">Donneur d'ordre </label>
+            <input type="text" placeholder="" class="form-control" formControName="adresseDestinataire">
+          </div>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group ">
+            <div class="select">
+              <a href target="_blank"> Vérification force-online </a>
+            </div>        
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+           <div class="row">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input id="embargo"  type="radio" name="bene_result" class="custom-control-input">
+              <label for="embargo" class="custom-control-label">Aucune sanction</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input id="no_embargo" type="radio" name="bene_result" class="custom-control-input">
+              <label for="no_embargo" class="custom-control-label"> Entité sanctionnée</label>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
     <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -36,7 +66,7 @@
     <div class="form-group ">
       <label class="form-control-label">Banque du destinataire</label>
       <div class="row">
-        <div class="col-md-5 select">
+        <div class="col-md-3 select">
           <select formControlName="idBanque" class="form-control mb-3">
             <option>option 1</option>
             <option>option 2</option>
@@ -47,11 +77,34 @@
         <div class="col-md-3">
           <button  type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Nouvelle Banque</button>
         </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group ">
+              <div class="select">
+                <a href target="_blank"> Vérification force-online </a>
+              </div>        
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+             <div class="row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input id="embargo"  type="radio" name="bene_result" class="custom-control-input">
+                <label for="embargo" class="custom-control-label">Aucune sanction</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input id="no_embargo" type="radio" name="bene_result" class="custom-control-input">
+                <label for="no_embargo" class="custom-control-label"> Entité sanctionnée</label>
+              </div>
+             </div>
+            </div>
+          </div>
+        </div>
       </div>  
     </div>
  
     </div>
-    <div class="line"></div>
                   
     <div class="form-group row">
       <div class="col-md-9 ml-auto  ">
@@ -59,4 +112,6 @@
         <button routerLink="/trf/dossiers/ac"  class="btn btn-primary">Suivant</button>
       </div>
     </div>
+    <div class="line"></div>
+
   </form>

@@ -7,26 +7,22 @@ import { OrdreComponent } from './ordre/ordre.component';
 import { DonneurComponent } from './ordre/composant/donneur/donneur.component';
 import { BeneficiaireComponent } from './ordre/composant/beneficiaire/beneficiaire.component';
 import { OperationComponent } from './ordre/composant/operation/operation.component';
+import { ActiviteComponent } from './activite/activite.component';
+import { MotifComponent } from './motif/motif.component';
+import { JustificatifComponent } from './justificatif/justificatif.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
+  
   {
     path: 'dashboard',
     component: DashboardComponent
   },
   {
-    path: 'dossiers',
+    path: '',
     component: TemplateComponent,
     children: [
-      {
-        path: '',
-        component: DossierComponent
-      },
+    
       {
         path: 'ordre',
         component: OrdreComponent,
@@ -47,8 +43,20 @@ const routes: Routes = [
       },
       {
         path: 'list',
+        component: DossierComponent
       },
-  
+      {
+        path:'activites',
+        component: ActiviteComponent
+      },
+      {
+        path: 'motif',
+        component: MotifComponent
+      },
+      {
+        path: 'justificatif',
+        component: JustificatifComponent
+      }
     ]
   },
 ];
