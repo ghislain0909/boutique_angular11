@@ -10,19 +10,26 @@
             </a>
         </li>
         <li class="sidebar-list-item">
-            <a routerLink="/trf/ordre/donneur" class="sidebar-link text-muted">
-                <i class="o-home-1 mr-3 text-gray"></i>
+            <a routerLink="/trf/ordre" class="sidebar-link text-muted">
+                <i class="o-table-content-1 mr-3 text-gray"></i>
                 <span>Ordre Virement</span>
             </a>
         </li>
         <li class="sidebar-list-item">
-            <a routerLink="/trf/activites" class="sidebar-link text-muted">
-                <i class="o-home-1 mr-3 text-gray"></i>
-                <span>Secteur d'activités</span>
+            <a routerLink="/trf/list" class="sidebar-link text-muted">
+                <i class="o-exit-1 mr-3 text-gray"></i>
+                <span>Operations</span>
             </a>
         </li>
-      
         <li class="sidebar-list-item">
+            <a routerLink="/trf/list" class="sidebar-link text-muted">
+                <i class="o-sales-up-1 mr-3 text-gray"></i>
+                <span>Statistiques</span>
+            </a>
+        </li>
+        
+      
+        <li class="sidebar-list-item" *ngIf="authService.isManager()">
             <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted">
                 <i class="o-survey-1 mr-3 text-gray"></i>
                 <span>Paramétrage</span>
@@ -30,26 +37,71 @@
             <div id="pages" class="collapse">
                 <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                     <li class="sidebar-list-item">
-                        <a routerLink="/trf/dossiers/ordre" class="sidebar-link text-muted pl-lg-5">
-                            Gestion des utilisateurs
+                        <a routerLink="/trf/activites" class="sidebar-link text-muted pl-lg-5">
+                            <span>Secteur d'activités</span>
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a routerLink="/trf/dossiers/ac" class="sidebar-link text-muted pl-lg-5">
-                            Gestion des rôles
+                        <a routerLink="/trf/motifs" class="sidebar-link text-muted pl-lg-5">
+                            Motif
                         </a>
                     </li>
-                  
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/justificatifs" class="sidebar-link text-muted pl-lg-5">
+                            Justificatif
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/just--motifs" class="sidebar-link text-muted pl-lg-5">
+                            Justificatif par Motif
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/devises" class="sidebar-link text-muted pl-lg-5">
+                            Devise
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/pays" class="sidebar-link text-muted pl-lg-5">
+                            Pays
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/marchandises" class="sidebar-link text-muted pl-lg-5">
+                            Liste des marchandises
+                        </a>
+                    </li>
+                    
                 </ul>
             </div>
         </li>
-      
-        <li class="sidebar-list-item">
-            <a routerLink="/trf/list" class="sidebar-link text-muted">
-                <i class="o-wireframe-1 mr-3 text-gray"></i>
-                <span>Statistiques</span>
+        <li class="sidebar-list-item" *ngIf="authService.isRoot()">
+            <a  href="#" data-toggle="collapse" data-target="#users-settings" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted">
+                <i class="o-user-1 mr-3 text-gray"></i>
+                <span>Gestion des utilisateurs</span>
             </a>
+            <div id="users-settings" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/users" class="sidebar-link text-muted pl-lg-5">
+                            <span>Liste des utilisateurs</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/register" class="sidebar-link text-muted pl-lg-5">
+                            Nouvel utilisateur
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a routerLink="/trf/update-role" class="sidebar-link text-muted pl-lg-5">
+                            Mise à jour des rôles
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
         </li>
+       
         <li class="sidebar-list-item">
             <a href="forms.html" class="sidebar-link text-muted">
                 <i class="o-wireframe-1 mr-3 text-gray"></i>

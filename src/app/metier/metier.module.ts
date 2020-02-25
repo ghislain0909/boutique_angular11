@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { JwPaginationComponent } from 'jw-angular-pagination';  
 
 import { MetierRoutingModule } from './metier-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +20,14 @@ import { SummaryComponent } from './ordre/composant/summary/summary.component';
 import { ActiviteComponent } from './activite/activite.component';
 import { MotifComponent } from './motif/motif.component';
 import { JustificatifComponent } from './justificatif/justificatif.component';
+import { MarchandiseComponent } from './marchandise/marchandise.component';
+import { UsersComponent } from './users/users.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { DeviseComponent } from './devise/devise.component';
+import { PaysComponent } from './pays/pays.component';
+import { RoleUpdateComponent } from './role-update/role-update.component';
+import { AnalyseComponent } from './analyse/analyse.component';
+import { MotifJustComponent } from './motif-just/motif-just.component';
 
 
 @NgModule({
@@ -38,6 +47,15 @@ import { JustificatifComponent } from './justificatif/justificatif.component';
      ActiviteComponent,
      MotifComponent,
      JustificatifComponent,
+     MarchandiseComponent,
+     UsersComponent,
+     NewUserComponent,
+     DeviseComponent,
+     PaysComponent,
+     RoleUpdateComponent,
+     AnalyseComponent,
+     MotifJustComponent,
+     JwPaginationComponent 
     ],
   imports: [
     CommonModule,

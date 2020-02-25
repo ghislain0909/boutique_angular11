@@ -1,0 +1,87 @@
+<div id="content" class="container-fluid px-xl-5">
+    <section class="py-5">
+        <ng-container *ngIf="authService.isManager()">
+            <div class="col-lg-12 mb-5">
+            
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="h6 text-uppercase">
+                            Attribution Motif - Justificatif
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="motifForm" class="form-inline" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label class="sr-only">Motif</label>
+                                <select formControlName="idMotif" class="form-control mr-3">
+                                    <option *ngFor="let motif of motifs" [ngValue]="motif.id" >{{ motif.libMotif }} </option> 
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Justificatif</label>
+                                <select formControlName="idJustificatif" class="form-control mr-1">
+                                    <option *ngFor="let just of justificatifs" [ngValue]="just.id" >{{ just.libJustificatif }} </option> 
+                                </select>                    
+                            </div>
+                            <div class="custom-control custom-checkbox mr-3">
+                                <input id="customCheck1" type="checkbox" formControlName="obligatoire" value="true" class="custom-control-input">
+                                <label for="customCheck1" class="custom-control-label">Obligatoire</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="customCheck2" type="checkbox" formControlName="optionel" value="true" class="custom-control-input">
+                                <label for="customCheck2" class="custom-control-label">Optionel</label>
+                            </div>
+                            <div class="line"></div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary"> Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>   
+            </div>
+        </ng-container>
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3 class="h6 text-uppercase">Liste des justificatifs par motifs </h3>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="card-body">                           
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Motif</th>
+                                    <th> Nom du document</th>                                    
+                                    <th> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let elt of pagedItems">
+                                <tr>
+                                    <td></td>
+                                    <td> {{ elt.motif.libMotif }}</td>
+                                    <td> {{ elt.justificatif.libJustificatif }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                        <button type="button" *ngIf="authService.isManager()" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                        <button type="button" *ngIf="authService.isManager()" (click)="onDeleteJustificatif(just.id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer pb-0 pt-3">    
+                        <jw-pagination [items]="data" (changePage)="beginPagination($event)"></jw-pagination>    
+                    </div>   <div class="card-footer pb-0 pt-3">    
+                        <jw-pagination [items]="motifsJust" (changePage)="beginPagination($event)"></jw-pagination>    
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+ 

@@ -17,16 +17,19 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Bénéficiaire de l'ordre </th>
-                                    <th> Emétteur de l'ordre</th>
-                                    <th>Montant engagé </th>
-                                    <th> Observation </th>
+                                    <th>Motif </th>
+                                    <th> Montant engagé</th>
+                                    <th>Dévise</th>
                                     <th> Action </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor="let ope of operations">
                                 <tr >
-                            
+                                    <td></td>
+                                    <td> {{ ope.motif.libMotif }}</td>
+                                    <td> {{ ope.montant }}</td>
+                                    <td> {{ ope.devise.contreValeur }}</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -1,92 +1,218 @@
-<form class="form-horizontal">
+<form class="form-horizontal" novalidate [formGroup]="operationForm" (ngSubmit)="onFormSubmit()">
   <div class="tab-pane">
-    <h4 class="head text-center">Information sur le donneur d'ordre</h4>
+    <h4 class="head text-center">Opération de transfert</h4>
     <br/>
   </div>
   <div class="container">
-  
-    <div class="form-group"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group ">
-            <label class="form-control-label">Catégorie personne</label>     
-            <div class="select">
-              <select formControlName="" class="form-control mb-3">
-                <option>Personne physique</option>
-                <option>Personne morale</option>
-                <option>Code BiC</option>
-                <option>option 4</option>
-              </select>
-            </div>             
-          </div>
+    <div class="row">
+      <div class="col-md-6">   
+        <div class="form-group">
+          <label class="form-control-label">Libellé</label>
+          <input type="text" formControlName="libelle" class="form-control"
+          [ngClass]="{ 'is-invalid': f.libelle.touched && f.libelle.errors }">
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label">Donneur d'ordre </label>
-            <input type="text" placeholder="" class="form-control" formControName="adresseDestinataire">
-          </div>
+      </div>
+  
+      <div class="col-md-5">
+        <div class="form-group">
+          <label class="form-control-label">Motif du transfert</label>
+          <select formControlName="idMotif" class="form-control"
+          [ngClass]="{ 'is-invalid': f.idMotif.touched && f.idMotif.errors }">
+            <option *ngFor="let motif of motifs" [ngValue]="motif.id" >
+              {{ motif.libMotif }} 
+            </option> 
+          </select>
         </div>
       </div>
     </div>
+  
+    <div class="row">
+      <div class="col-md-4">       
+        <div class="form-group">
+          <label class="form-control-label">Type de marchandise </label>
+          <select formControlName="idMarchandise" class="form-control">
+            <option *ngFor="let m of marchandises" [ngValue]="m.id" >{{ m.marchandise }} </option>
+          </select>
+        </div>        
+      </div>
 
-    <div class="form-group"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group ">
-            <label class="form-control-label">Activité donneur</label>          
-            <div class="select">
-              <select formControlName="" class="form-control mb-3">
-                <option>Activité extractive</option>
-                <option>Perso</option>
-                <option>Code BiC</option>
-                <option>option 4</option>
+      <div class="col-md-6">       
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label class="form-control-label">Montant </label>
+            <input type="text" formControlName="montant" class="form-control"
+            [ngClass]="{ 'is-invalid': f.montant.touched && f.montant.errors }">
+          </div>
+          <div class="col-md-6">       
+            <div class="form-group">
+              <label class="form-control-label">Dévise</label>
+              <select formControlName="idDevise" class="form-control"
+              [ngClass]="{ 'is-invalid': f.idDevise.touched && f.idDevise.errors }">
+                <option *ngFor="let de of devises" [ngValue]="de.id" >{{ de.libelle }} </option>
               </select>
-            </div>          
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="form-control-label">Pays du donneur  </label>
-            <input type="text" placeholder="" class="form-control" formControName="adresseDestinataire">
+            </div>        
           </div>
         </div>
       </div>
-    </div>
-    <div class="form-group"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group ">
-                    
-            <div class="select">
-              <a href target="_blank"> Vérification force-online </a>
-            </div>          
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-           <div class="row">
-            <div class="custom-control custom-radio custom-control-inline">
-              <input id="embargo"  type="radio" name="bene_result" class="custom-control-input">
-              <label for="embargo" class="custom-control-label">Aucune sanction</label>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label class="form-control-label">Documents Joints </label>
+          <button type="button" data-toggle="modal" data-target="#myModal" (click)="onClick()" class="btn btn-secondary">Documents</button>
+          <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+            <div role="document" class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 id="exampleModalLabel" class="modal-title">Liste des documents joints au dossier </h4>
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                  <div class="custom-control" *ngFor="let doc of documents; let i=index" >
+                    <label>
+                      <input type="checkbox" [value]="doc.justificatif.id" (change)="onCheckboxChange($event)"/>
+                      {{doc.justificatif.libJustificatif}}
+                    </label>
+                  </div>
+               
+                </div>
+                <div class="modal-footer">
+                  <button type="button" data-dismiss="modal" class="btn btn-secondary">Fermer</button>
+                </div>
+              </div>
             </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input id="no_embargo" type="radio" name="bene_result" class="custom-control-input">
-              <label for="no_embargo" class="custom-control-label"> Entité sanctionnée</label>
-            </div>
-           </div>
           </div>
-        </div>
+        </div>      
       </div>
     </div>
-  </div>
-  
-                  
+   
+    <div formArrayName="intervenants" *ngFor="let intervenant of operationForm.get('intervenants').controls; let i = index"> 
+      <ng-container [formGroupName]="i">
+         <div class="line"></div>
+         <div class="row">
+           
+         </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group ">
+              <label class="form-control-label">Catégorie </label>     
+              <div class="select">
+                <select formControlName="categorie" class="form-control mb-3">
+                  <option>Pers physique</option>
+                  <option>Pers morale</option>
+                  <option>Code BiC</option>
+                  <option>option 4</option>
+                </select>
+              </div>             
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label class="form-control-label">Identité intervenant</label>
+              <input type="text" formControlName="name" class="form-control" required/>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group ">
+              <label class="form-control-label">Lien </label>     
+              <div class="select">
+                <a href="_blank"> Force-online</a>
+              </div>             
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label class="form-control-label">Résultat  </label>
+              <div class="row">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox"  formControlName="r_name" class="form-check-input" value="True">
+                    Aucune sanction
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row"> 
+          <div class="col-md-4">
+            <div class="form-group ">
+              <label class="form-contcontrolrol-label">Banque </label>          
+              <input type="text" class="form-control" formControlName="banque">      
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-control-label">Lien Force online </label>
+                <div class="select">
+                  <a href="http://www.forces.com"> Force-online </a>
+                </div>           
+              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-control-label">Résultat  </label>
+              <div class="row">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox"  formControlName="r_banque" class="form-check-input" value="True">
+                    Aucune sanction
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+              <div class="form-group ">          
+                <label class="form-control-label">Activité  </label>
+                <div class="select">
+                  <select  class="form-control mb-3" formControlName="idActivite">
+                     <option *ngFor="let act of activites" [ngValue]="act.id" >{{ act.libActivite }} </option>      
+                   </select>
+                </div>       
+             </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group ">
+                <label class="form-control-label">Pays</label>     
+                <div class="select">
+                  <select  class="form-control mb-3" formControlName="idPays">
+                     <option *ngFor="let p of pays" [ngValue]="p.id" >{{ p.pays }} </option>      
+                   </select>
+                </div>             
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label">Résultat  </label>
+                <div class="row">
+                 
+                  <div class="form-check">
+                    <label class="form-check-label">
+                     
+                    </label>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+      </ng-container>    
+    </div>
+    <div class="line"></div>
     <div class="form-group row">
       <div class="col-md-9 ml-auto  ">
-        <button type="button" routerLink="/trf/dossiers/ac" class="btn btn-secondary">Annuler</button>
-        <button routerLink="/trf/dossiers/ac"  class="btn btn-primary">Suivant</button>
+        <button type="button" (click)="addIntervenant()" class="btn btn-primary">Ajouter un intervenant</button>
+      </div>
+    </div>
+    <div class="line"></div>                
+    <div class="form-group row">
+      <div class="col-md-9 ml-auto  ">
+        <button type="button" (click)="resetForm()" class="btn btn-secondary">Annuler</button>
+        <button type="submit"  class="btn btn-primary">Enregistrer</button>
       </div>
     </div>
     <div class="line"></div>
-
-  </form>
+  </div>
+</form>

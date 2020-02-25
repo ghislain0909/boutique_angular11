@@ -1,61 +1,103 @@
 <div id="content" class="container-fluid px-xl-5">
-    <section class="py-5">
-        <div class="col-lg-12 mb-5">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h6 text-uppercase">
-                        Nouveau motif
-                    </h3>
+  <section class="py-5">
+    <ng-container *ngIf="authService.isManager()">
+    <div class="mb-5">
+    
+      <div class="card">
+        <div class="card-header">
+          <h3 class="h6 text-uppercase">
+              Nouveau motif
+          </h3>
+        </div>
+        <div class="card-body">
+          <form class="form-inline" [formGroup]="motifForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label class="sr-only">Libellé</label>
+                  <input formControlName="libMotif" type="text" placeholder="Libellé du motif" class="mr-3 form-control col-md-12">
                 </div>
-                <div class="card-body">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="secteur" class="sr-only">secteur</label>
-                            <input id="secteur"  type="text" placeholder="Code activité" class="mr-3 form-control">
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-secondary"> Fichiers joints</button>
+                  <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+                    <div role="document" class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 id="exampleModalLabel" class="modal-title">Fichier à joindre </h4>
+                          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                         </div>
-                        <div class="form-group">
-                            <label for="libelle" class="sr-only">Libellé</label>
-                            <input id="libelle"  type="text" placeholder="Libellé de l'activité" class="mr-3 form-control">
+                        <div class="modal-body">
+                          <div class="custom-control" *ngFor="let doc of documentsData; let i=index" >
+                            <label>
+                              <input type="checkbox" [value]="doc.id" (change)="onCheckboxChange($event)"/>
+                              {{doc.libJustificatif}}
+                            </label>
+                          </div>
+                       
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary"> Enregistrer </button>
+                        <div class="modal-footer">
+                          <button type="button" data-dismiss="modal" class="btn btn-secondary">Fermer</button>
+                          <button type="button" class="btn btn-primary">Joindre</button>
                         </div>
-                    </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>      
+              </div>
+              <div class="line"></div>
+              <div class="form-group row">
+                <div class="col-md-12 ml-auto">
+                  <button type="submit" class="btn btn-secondary">Annuler</button>
+                  <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
+              </div>
             </div>
+          </form>
         </div>
-  
-        <div class="row">
-            <div class="col-lg-12 mb-4">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3 class="h6 text-uppercase">Dossiers de transferts de fonds </h3>
-                            </div>
-                          
-                        </div>
-                    </div>
-                    <div class="card-body">                           
-                        <table class="table table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Code activité </th>
-                                    <th> Libellé activité</th>
-                                 
-                                    <th> Action </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr >
-                            
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>      
-        </div>
-    </section>
-</div>  
+       
+      </div>
+    </div>
+    </ng-container>
+
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-9">
+                <h3 class="h6 text-uppercase">Motifs enregistrés</h3>
+              </div>  
+            </div>
+            </div>
+            <div class="card-body">                           
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th> Libellé du motif </th>
+                    <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody  *ngFor="let motif of pagedItems">
+                  <tr>
+                    <td></td>
+                    <td> {{ motif.libMotif }}</td>
+                    <td>
+                      <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                      <button type="button" *ngIf="authService.isManager()" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                      <button type="button" *ngIf="authService.isManager()" (click)="onDeleteMotif(motif.id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="card-footer pb-0 pt-3">    
+              <jw-pagination [items]="motifs" (changePage)="beginPagination($event)"></jw-pagination>    
+          </div>
+          </div>
+        </div>      
+    </div>
+  </section>
+</div>

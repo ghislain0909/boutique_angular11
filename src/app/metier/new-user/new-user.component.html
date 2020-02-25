@@ -1,0 +1,82 @@
+<div id="content" class="container-fluid px-xl-5">
+    <section class="py-5">
+        <div class="col-lg-12 mb-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="h6 text-uppercase">
+                        Enregistrer un utilisateur  
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="registerForm" class="form-horizontal"(ngSubmit)="onFormSubmit()">
+                        <div class="row">
+                            <div class="form-group  col-sm-10">
+                                <label class="form-control-label">Nom & Prénoms </label>
+                                <input type="text" formControlName="name" class="form-control" required
+                                [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }" placeholder="Nom & Prénoms"/>
+                                <div *ngIf="f.name.touched && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Nom et Prénoms obligatoires !</div>
+                                    <div *ngIf="f.name.errors.minlength">Très court (Minimum 4 caractres nécessaires.)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="form-control-label">Email</label>
+                                <input type="text" formControlName="email" class="form-control" required
+                                [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }"  placeholder="Email"/>
+                                <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Ce champ ne peut être vide</div>
+                                    <div *ngIf="f.email.errors.pattern">Email non valide</div>
+                                    <div *ngIf="f.email.errors.emailTaken">Cet email est déjà enregistré</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <label class="form-control-label">Username</label>
+                                <input type="text" formControlName="username" class="form-control" required
+                                [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }"  placeholder="Username"/>
+                                <div *ngIf="f.username.touched && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Username obligatoire</div>
+                                    <div *ngIf="f.username.errors.minlength">Username très court (Minimum 3 caractères nécessaires.)</div>
+                                    <div *ngIf="f.username.errors.maxlength">Username très long (Maximum 15 caractères.)</div>
+                                    <div *ngIf="f.username.errors.usernameTaken">Ce username est déja pris</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group  col-sm-6">
+                                <label class="form-control-label">Téléphone</label>
+                                <input type="text" formControlName="telephone" class="form-control" required
+                                [ngClass]="{ 'is-invalid': f.telephone.touched && f.telephone.errors }"  placeholder="Téléphone"/>
+                                    <div *ngIf="f.telephone.touched && f.telephone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telephone.errors.required">Ce champ ne peut être vide</div>
+                                    <div *ngIf="f.telephone.errors.pattern">Téléphone non valide</div>
+                                </div>
+                            </div>
+                            <div class="form-group  col-sm-6">
+                                <label class="form-control-label">Mot de passe </label>
+                                <input type="text" formControlName="password" class="form-control" required
+                                [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }"  placeholder="Mot de passe"/>
+                                <div *ngIf="f.telephone.touched && f.telephone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telephone.errors.required">Ce champ ne peut être vide</div>
+                                    <div *ngIf="f.telephone.errors.pattern">Téléphone non valide</div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="flexbox align-items-center">
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+  
+    </section>
+</div>  

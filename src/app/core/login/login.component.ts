@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/home']);
+         this.router.navigate(['/trf/dashboard']);
         },
         error => {
           this.error = 'Nom d\'utilisateur /mot de passe incorrect';

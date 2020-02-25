@@ -1,0 +1,68 @@
+<div id="content" class="container-fluid px-xl-5">
+    <section class="py-5">
+        <ng-container *ngIf="authService.isManager()">
+            <div class="col-lg-12 mb-5">        
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="h6 text-uppercase">
+                            Nouvelle catégorie de marchandise
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-inline" [formGroup]="marchandiseForm" (ngSubmit)="onFormSubmit()">
+                            <div class="form-group">
+                                <label class="sr-only">Marchandise</label>
+                                <input  type="text" formControlName="marchandise" placeholder="Marchandise" class="mr-3 form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary"> Enregistrer </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </ng-container>        
+  
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3 class="h6 text-uppercase">Liste des types de marchandises</h3>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="card-body">                           
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Marchandise</th>
+                                 
+                                    <th> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody  *ngFor="let marchandise of pageItems">
+                                <tr>
+                                    <td></td>
+                                    <td> {{ marchandise.marchandise }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                    </td>      
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer pb-0 pt-3">    
+                        <jw-pagination [items]="marchandises" (changePage)="beginPagination($event)"></jw-pagination>    
+                    </div>
+                </div>
+            </div>      
+        </div>
+    </section>
+</div>  
